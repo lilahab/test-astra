@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom'
 import axios from 'axios';
 
 function LoginPages() {
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [errorMsg, setErrorMsg] = useState("")
@@ -13,19 +13,17 @@ function LoginPages() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const userData = { email, password };
-        axios
-          .post('https://reqres.in/api/login', userData)
-          .then((response) => {
-            // Handle successful login, for example, store a token in local storage
-            history.replace('/users')
-            localStorage.setItem("token", response.data.token)
-          })
-          .catch((error) => {
-            // Handle login error
+        // Perform authentication here with username and password
+        // For simplicity, we'll just log the values to the console.
+        const userData = { username, password };
+        console.log(userData)
+        localStorage.setItem("username", userData.username)
+        history.replace('/universitas')
+        if(!userData.username && !userData.password) {
             setErrorMsg("Login failed. Please check your email and password.");
-          });
+        }
     }
+
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -39,11 +37,11 @@ function LoginPages() {
                     <Form.Group controlId="formBasicEmail" className="form-group">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control
-                            name="email"
-                            type="email"
-                            placeholder="Enter email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            name="username"
+                            type="text"
+                            placeholder="Enter username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
                             required
                             autoComplete="off"
                         />

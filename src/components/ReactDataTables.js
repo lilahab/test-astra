@@ -5,12 +5,12 @@ import "datatables.net"; // Import DataTables
 // Use noConflict mode to avoid conflicts with other libraries
 $.noConflict();
 
-function ReactDataTables({ data, columns }) {
+function ReactDataTables({ data, columns, onRowClick }) {
   const tableRef = useRef(null);
 
   useEffect(() => {
     if (data && data.length > 0) {
-      $(tableRef.current).DataTable({
+      const dataTable = $(tableRef.current).DataTable({
         data: data,
         columns: columns,
         dom: 'Bfrtip',
@@ -43,8 +43,20 @@ function ReactDataTables({ data, columns }) {
         },
         buttons: [],
       });
+
+      $(tableRef.current).on("click", "tr", function () {
+        const row = dataTable.row(this).data();
+        if (onRowClick) {
+          onRowClick(row);
+        }
+      });
+
+      return () => {
+        // Destroy the DataTable instance when the component unmounts
+        dataTable.destroy();
+      };
     }
-  }, [data, columns]);
+  }, [data, columns, onRowClick]);
 
   return <table ref={tableRef} className="table table-bordered table-striped"></table>;
 }
