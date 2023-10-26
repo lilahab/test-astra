@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/test-vhiweb/static/css/main.ca9d2d2d.css",
-    "main.js": "/test-vhiweb/static/js/main.ab6ff453.js",
-    "static/js/787.f6ed5215.chunk.js": "/test-vhiweb/static/js/787.f6ed5215.chunk.js",
-    "index.html": "/test-vhiweb/index.html",
-    "main.ca9d2d2d.css.map": "/test-vhiweb/static/css/main.ca9d2d2d.css.map",
-    "main.ab6ff453.js.map": "/test-vhiweb/static/js/main.ab6ff453.js.map",
-    "787.f6ed5215.chunk.js.map": "/test-vhiweb/static/js/787.f6ed5215.chunk.js.map"
+    "main.css": "./static/css/main.54e65def.css",
+    "main.js": "./static/js/main.651325cf.js",
+    "static/js/787.12940de3.chunk.js": "./static/js/787.12940de3.chunk.js",
+    "index.html": "./index.html",
+    "main.54e65def.css.map": "./static/css/main.54e65def.css.map",
+    "main.651325cf.js.map": "./static/js/main.651325cf.js.map",
+    "787.12940de3.chunk.js.map": "./static/js/787.12940de3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ca9d2d2d.css",
-    "static/js/main.ab6ff453.js"
+    "static/css/main.54e65def.css",
+    "static/js/main.651325cf.js"
   ]
 }
